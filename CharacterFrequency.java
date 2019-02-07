@@ -9,7 +9,7 @@
  * </p>
  * 
  * @author Victor W. Frye <vwfrye95@outlook.com>
- * @version 2.1
+ * @version 2.2
  * @since 1.0
  */
 
@@ -17,6 +17,29 @@ public class CharacterFrequency {
 
 	private int frequency; // counter variable of character frequency
 	private char character; // identifying variable of character frequency
+
+	// Methods to access 'frequency' variable
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int i) {
+		// Verify that count is a positive number
+		if (i >= 0)
+			frequency = i;
+		// Throw exception for inappropriate argument
+		else
+			throw new IllegalArgumentException();
+	}
+
+	// Methods to access 'character' variable
+	public char getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(char ch) {
+		character = ch;
+	}
 
 	// Default constructor
 	public CharacterFrequency() {
@@ -42,29 +65,6 @@ public class CharacterFrequency {
 		frequency = cf.getFrequency(); // Set frequency to passed argument's
 	}
 
-	// Methods to access 'frequency'
-	public void setFrequency(int i) {
-		// Verify that count is a positive number
-		if (i >= 0)
-			frequency = i;
-		// Throw exception for inappropriate argument
-		else
-			throw new IllegalArgumentException();
-	}
-
-	public int getFrequency() {
-		return frequency;
-	}
-
-	// Methods to access character variable
-	public void setCharacter(char ch) {
-		character = ch;
-	}
-
-	public char getCharacter() {
-		return character;
-	}
-
 	// Method to increment frequency by one
 	public void increment() {
 		frequency++;
@@ -87,7 +87,13 @@ public class CharacterFrequency {
 		CharacterFrequency cf = (CharacterFrequency) obj;
 
 		// Compare the character of this to the object's character
-		return character == cf.getCharacter();
+		return this.hashCode() == cf.hashCode();
+	}
+
+	// Override hashCode to return the character casted as an integer
+	@Override
+	public int hashCode() {
+		return (int) character;
 	}
 
 	// Output the class as a String in the format: 'A(65) = 7'
