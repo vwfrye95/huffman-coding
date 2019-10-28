@@ -1,11 +1,11 @@
-package me.victorfrye.pojo;
+package me.victorfrye.huffmancoding.model;
 
 import static java.util.Objects.hash;
 
 /**
  * A class to identify a character and count occurrences of the character.
  * <p>
- * This class has two variables: 'character' and 'frequency'.  The character identifies the class while the frequency maintains a count of occurences.  Constructors are included for default, character only, character + frequency, and a CharacterFrequency object.  Comparison of CharacterFrequency objects is done only by the character variable.
+ * This class has two variables: 'character' and 'frequency'.  The character identifies the class while the frequency maintains a count of occurrences.  Constructors are included for default, character only, character + frequency, and a CharacterFrequency object.  Comparison of CharacterFrequency objects is done only by the character variable.
  * </p>
  *
  * @author Victor W. Frye <iam@victorfrye.me>

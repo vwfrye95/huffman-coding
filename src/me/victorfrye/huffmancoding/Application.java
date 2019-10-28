@@ -1,11 +1,18 @@
-package me.victorfrye;
+package me.victorfrye.huffmancoding;
 
-import static me.victorfrye.constant.Constants.INPUT_FILENAME_ARGUMENT;
-import static me.victorfrye.constant.Constants.OUTPUT_FILENAME_ARGUMENT;
+import me.victorfrye.huffmancoding.service.DecodingService;
+import me.victorfrye.huffmancoding.service.EncodingService;
+
+import static me.victorfrye.huffmancoding.util.Constants.INPUT_FILENAME_ARGUMENT;
+import static me.victorfrye.huffmancoding.util.Constants.OUTPUT_FILENAME_ARGUMENT;
 
 import java.io.File;
 
 public class Application {
+
+	private final EncodingService encodingService = new EncodingService();
+	private final DecodingService decodingService = new DecodingService();
+
   public static void main(String[] args) {
 	  if (args.length != 2) {
 	    System.out.println("Invalid number of arguments");
@@ -24,11 +31,11 @@ public class Application {
 	    System.out.printf("The output file '%s' already exists and is being overwritten",
           args[OUTPUT_FILENAME_ARGUMENT]);
     }
-	  
-	  run();
+
+	  run(args);
 	}
 
-  private static void run() {
+  private static void run(String[] args) {
     // TODO
   }
 }
